@@ -81,6 +81,8 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+unsetopt BEEP
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -99,11 +101,12 @@ source $ZSH/oh-my-zsh.sh
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+alias gs='git status'
+alias gd='git diff'
+alias gcmsg='git commit -m'
+
+
 
 export PATH=/home/kevin/.local/bin:$PATH
 # make caps2escape and vim editing better
@@ -113,3 +116,4 @@ export KEYTIMEOUT=1
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias godot='~/bin/godot/Godot_v3.2.3-stable_mono_x11.64'

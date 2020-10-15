@@ -16,8 +16,13 @@ call plug#begin('~/.vim/plugged')
 
 " Load plugins here
 
-Plug 'habamax/vim-godot'
+Plug 'sainnhe/sonokai'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'itchyny/lightline.vim'
+Plug 'sheerun/vim-polyglot'
+Plug 'habamax/vim-godot'
+let g:godot_executable='/home/kevin/bin/godot/Godot_v3.2.3-stable_mono_x11.64'
+
 
 " Initialize loaded plugins
 call plug#end()
@@ -27,6 +32,7 @@ call plug#end()
 "-------------------------------------------------------------
 syntax enable
 
+set number
 set nowrap				" Don't wrap lines
 set clipboard+=unnamed			" Yank and past with the system clipboard
 set nobackup				" No need for backups
@@ -49,10 +55,39 @@ else
   set signcolumn=yes
 endif
 
+" Default indentation setup
+set expandtab
+set shiftwidth=2
+set softtabstop=2
+
+" file browser setup
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_winsize = 20
+augroup ProjectDrawer
+  autocmd!
+  autocmd VimEnter * :Vexplore
+augroup END
+
+" color scheme setup
+if has('termguicolors')
+  set termguicolors
+endif
+
+" The configuration options should be placed before `colorscheme sonokai`.
+let g:sonokai_style = 'default'
+let g:sonokai_enable_italic = 0
+let g:sonokai_disable_italic_comment = 1
+
+colorscheme sonokai
 
 "------------------------------------------------------------------------------
 " Key remaps
 "------------------------------------------------------------------------------
+
+let mapleader = ';'
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
