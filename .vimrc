@@ -70,10 +70,6 @@ let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 let NERDTreeQuitOnOpen = 1
-augroup NerdTreeSetup
-  autocmd!
-  autocmd VimEnter * NERDTree
-augroup END
 
 " color scheme setup
 if has('termguicolors')
