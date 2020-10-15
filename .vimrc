@@ -1,3 +1,5 @@
+let mapleader = ';'
+
 "-------------------------------------------------------------
 " Plugin Setup
 "-------------------------------------------------------------
@@ -17,6 +19,7 @@ call plug#begin('~/.vim/plugged')
 " Load plugins here
 
 Plug 'sainnhe/sonokai'
+Plug 'preservim/nerdtree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'itchyny/lightline.vim'
 Plug 'sheerun/vim-polyglot'
@@ -60,15 +63,16 @@ set expandtab
 set shiftwidth=2
 set softtabstop=2
 
-" file browser setup
-let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-let g:netrw_browse_split = 4
-let g:netrw_altv = 1
-let g:netrw_winsize = 20
-augroup ProjectDrawer
+" nerdtree setup
+map <C-n> :NERDTreeToggle<CR>
+nnoremap <silent> <leader>v :NERDTreeFind<CR>
+let NERDTreeAutoDeleteBuffer = 1
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+let NERDTreeQuitOnOpen = 1
+augroup NerdTreeSetup
   autocmd!
-  autocmd VimEnter * :Vexplore
+  autocmd VimEnter * NERDTree
 augroup END
 
 " color scheme setup
@@ -86,8 +90,6 @@ colorscheme sonokai
 "------------------------------------------------------------------------------
 " Key remaps
 "------------------------------------------------------------------------------
-
-let mapleader = ';'
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
