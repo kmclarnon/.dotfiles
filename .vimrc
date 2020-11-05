@@ -24,11 +24,17 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'itchyny/lightline.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'habamax/vim-godot'
-let g:godot_executable='/home/kevin/bin/godot/Godot_v3.2.3-stable_mono_x11.64'
+Plug 'junegunn/fzf'
 
 
 " Initialize loaded plugins
 call plug#end()
+
+"-------------------------------------------------------------
+" Plugin Configuration
+"-------------------------------------------------------------
+
+let g:godot_executable='/home/kevin/bin/godot/Godot_v3.2.4-beta1_mono_x11.64'
 
 "-------------------------------------------------------------
 " General Settings
@@ -62,6 +68,7 @@ endif
 set expandtab
 set shiftwidth=2
 set softtabstop=2
+set tabstop=2
 
 " nerdtree setup
 map <C-n> :NERDTreeToggle<CR>
@@ -113,10 +120,10 @@ endif
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
-" Use `[g` and `]g` to navigate diagnostics
+" Use `[e` and `]e` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nmap <silent> [e <Plug>(coc-diagnostic-prev)
+nmap <silent> ]e <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
@@ -145,7 +152,7 @@ nmap <leader>rn <Plug>(coc-rename)
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
-augroup mygroup
+augroup CocSetupGroup
   autocmd!
   " Setup formatexpr specified filetype(s).
   autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
